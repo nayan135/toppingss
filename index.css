@@ -1,0 +1,386 @@
+/* CSS Variables for theming */
+
+:root {
+    --doom-primary: #1a472a;
+    --doom-secondary: #2a623d;
+    --doom-accent: #50c878;
+    --doom-dark: #0c221a;
+    --doom-light: #b8c6bc;
+    --doom-text: #e0e0e0;
+    --doom-header-font: 'Times New Roman', serif;
+    --doom-body-font: Arial, sans-serif;
+    --doom-border-radius: 5px;
+    --doom-spacing: 20px;
+    --doom-transition: all 0.3s ease;
+}
+
+
+/* Base styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--doom-body-font);
+    background: linear-gradient(135deg, rgb(78, 84, 200), rgb(143, 148, 251));
+    color: var(--doom-text);
+    line-height: 1.6;
+    padding: 0 var(--doom-spacing);
+    position: relative;
+    min-height: 100vh;
+}
+
+
+/* Animated Doom Mask */
+
+.doom-mask {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background-image: url('https://i.imgur.com/placeholder-doom-mask.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.1;
+    z-index: -1;
+    animation: pulseMask 4s infinite alternate;
+}
+
+@keyframes pulseMask {
+    0% {
+        opacity: 0.05;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0.15;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+
+/* Typography */
+
+h1 {
+    font-family: var(--doom-header-font);
+    text-align: center;
+    font-size: 3.5rem;
+    margin: var(--doom-spacing) 0;
+    color: var(--doom-accent);
+    text-shadow: 3px 3px 0 var(--doom-dark);
+    animation: doomGlow 2s infinite alternate;
+}
+
+@keyframes doomGlow {
+    from {
+        text-shadow: 0 0 5px var(--doom-accent), 0 0 10px var(--doom-accent);
+    }
+    to {
+        text-shadow: 0 0 15px var(--doom-accent), 0 0 20px var(--doom-accent);
+    }
+}
+
+.tagline {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: var(--doom-spacing);
+    font-size: 1.2rem;
+}
+
+h2 {
+    font-family: var(--doom-header-font);
+    color: var(--doom-accent);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--doom-accent);
+    padding-bottom: 5px;
+}
+
+h3 {
+    color: var(--doom-light);
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+
+/* Navigation styles */
+
+.site-navigation {
+    display: flex;
+    justify-content: center;
+    margin: var(--doom-spacing) 0;
+}
+
+.nav-button {
+    display: inline-block;
+    background-color: var(--doom-secondary);
+    color: var(--doom-text);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: var(--doom-border-radius);
+    transition: var(--doom-transition);
+    border: 2px solid var(--doom-accent);
+}
+
+.nav-button:hover {
+    background-color: var(--doom-accent);
+    color: var(--doom-dark);
+    transform: scale(1.05);
+}
+
+.doom-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--doom-spacing);
+    padding: 10px;
+    background-color: rgba(26, 71, 42, 0.7);
+    border-radius: var(--doom-border-radius);
+}
+
+.doom-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.doom-nav a {
+    color: var(--doom-text);
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: var(--doom-border-radius);
+    transition: var(--doom-transition);
+}
+
+.doom-nav a:hover {
+    background-color: var(--doom-accent);
+    color: var(--doom-dark);
+}
+
+.doom-portrait {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--doom-secondary);
+    padding: 5px;
+    border: 2px solid var(--doom-accent);
+    overflow: hidden;
+}
+
+.portrait-inner {
+    width: 100%;
+    height: 100%;
+    background-color: var(--doom-dark);
+    border-radius: 50%;
+    background-image: url('https://i.imgur.com/placeholder-doom.png');
+    background-size: cover;
+    background-position: center;
+    animation: rotatePortrait 20s linear infinite;
+}
+
+@keyframes rotatePortrait {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Main container with grid layout */
+
+.doom-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--doom-spacing);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--doom-spacing);
+    background-color: rgba(12, 34, 26, 0.7);
+    border-radius: var(--doom-border-radius);
+    box-shadow: 0 0 20px rgba(80, 200, 120, 0.3);
+}
+
+
+/* Section styling */
+
+.doom-section {
+    padding: var(--doom-spacing);
+    background-color: rgba(26, 71, 42, 0.5);
+    border-radius: var(--doom-border-radius);
+    border-left: 4px solid var(--doom-accent);
+    transition: var(--doom-transition);
+}
+
+.doom-section:hover {
+    transform: translateX(5px);
+    box-shadow: -5px 0 10px rgba(80, 200, 120, 0.3);
+}
+
+
+/* Abilities grid */
+
+.abilities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.ability-card {
+    background: linear-gradient(145deg, var(--doom-secondary) 0%, var(--doom-dark) 100%);
+    padding: 15px;
+    border-radius: var(--doom-border-radius);
+    border: 1px solid var(--doom-accent);
+    transition: var(--doom-transition);
+}
+
+.ability-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(80, 200, 120, 0.3);
+}
+
+
+/* Latveria info with flexbox */
+
+.latveria-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.info-box {
+    flex: 1;
+    min-width: 150px;
+    padding: 15px;
+    background-color: var(--doom-dark);
+    border-radius: var(--doom-border-radius);
+    text-align: center;
+    border: 1px solid var(--doom-accent);
+}
+
+
+/* Gallery grid */
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.gallery-item {
+    height: 150px;
+    background-color: var(--doom-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--doom-border-radius);
+    text-align: center;
+    font-weight: bold;
+    transition: var(--doom-transition);
+    background: linear-gradient(45deg, var(--doom-dark) 0%, var(--doom-secondary) 100%);
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+    border-color: var(--doom-accent);
+    box-shadow: 0 0 15px rgba(80, 200, 120, 0.4);
+}
+
+
+/* Quotes section */
+
+.quotes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.doom-quote {
+    padding: 15px;
+    background-color: var(--doom-dark);
+    border-left: 3px solid var(--doom-accent);
+    font-style: italic;
+    position: relative;
+    transition: var(--doom-transition);
+}
+
+.doom-quote:hover {
+    transform: translateX(10px);
+}
+
+
+/* Footer styling */
+
+footer {
+    text-align: center;
+    margin-top: var(--doom-spacing);
+    padding: var(--doom-spacing) 0;
+    border-top: 1px solid var(--doom-accent);
+}
+
+
+/* Media Queries for responsive design */
+
+@media (min-width: 768px) {
+    .doom-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .doom-nav,
+    #about,
+    #quotes {
+        grid-column: span 2;
+    }
+    .abilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .abilities-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .image-gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .quotes-container {
+        flex-direction: row;
+    }
+    .doom-quote {
+        flex: 1;
+    }
+}
+
+@media (max-width: 767px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    .doom-nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .doom-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .abilities-grid {
+        grid-template-columns: 1fr;
+    }
+    .image-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .latveria-info {
+        flex-direction: column;
+    }
+}
