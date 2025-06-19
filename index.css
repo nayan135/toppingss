@@ -15,6 +15,9 @@
 }
 
 
+/* Doom Theme Style */
+
+
 /* Base styles */
 
 * {
@@ -179,7 +182,7 @@ p {
     height: 100%;
     background-color: var(--doom-dark);
     border-radius: 50%;
-    background-image: url('https://i.imgur.com/placeholder-doom.png');
+    background-image: url('doom.jpg');
     background-size: cover;
     background-position: center;
     animation: rotatePortrait 20s linear infinite;
